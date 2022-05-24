@@ -9,18 +9,24 @@ const rl = readline.createInterface({ input, output });
 
 rl.question('Press Enter for input content in a file (if you want cose input "exit") ', (answer) => {
   if(answer === 'ctrl + c' || answer == 'exit') {
-    rl.close();
     writableStream.end();
+    rl.close();
   } 
   rl.on('line', (input) => {
-    if(input === 'ctrl + c' || input == 'exit') {
-      console.log('Process completed');
-      rl.close();
+    if(input == 'ctrl + c' || input == 'exit') {
       writableStream.end();
+      rl.close();
     } else {
       writableStream.write(input);
       console.log(`Recorded content in a file: ${input}`);
     }
   });
 });
+
+rl.on('close', () => {
+  console.log('Process completed');
+  process.exit(0);
+});
+
+
 
