@@ -4,9 +4,8 @@ const path = require('path');
 let srcDir = path.join('05-merge-styles', 'styles');
 let prjDir = path.join('05-merge-styles', 'project-dist');
 
-fs.unlink(path.format({dir: prjDir, base: 'bundle.css'}), err => {
+fs.writeFile(path.format({dir: prjDir, base: 'bundle.css'}), '', 'utf8', err => {
   if(err) throw err; 
-  console.log('File deleted');
 });
 
 fs.readdir(srcDir,  'utf-8', (err, files) => {   
