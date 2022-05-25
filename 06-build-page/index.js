@@ -1,3 +1,4 @@
+
 const path = require('path');
 const fsp = require('fs').promises;
 const fs = require('fs');
@@ -70,6 +71,5 @@ function copyDir(source, target) {
 replaceContent();
 bundleCss();
 copyDir(pathAssets, pathAssetsProj);
-
 
 
