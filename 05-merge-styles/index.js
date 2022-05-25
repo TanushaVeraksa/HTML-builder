@@ -25,6 +25,3 @@ fs.readdir(srcDir,  'utf-8', (err, files) => {
     });
   });
 });
-
-
-//path.format({dir: prjDir, base: 'bundle.css'})
